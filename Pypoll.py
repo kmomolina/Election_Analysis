@@ -112,7 +112,7 @@ with open(file_to_save, "w") as txt_file:
     txt_file.write(winning_candidate_summary)
 
         #print candidadate name and percentage
-        #print(f"{candidate_name}: received {votes / total_votes * 100:.2f}% of the vote.")
+    #print(f"{candidate_name}: received {votes / total_votes * 100:.2f}% of the vote.")
 
 #  To do: print out the winning candidate, vote count and percentage to terminal.
 
