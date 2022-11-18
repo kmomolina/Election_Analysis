@@ -13,19 +13,65 @@ file_to_load = os.path.join("Resources", "election_results.csv")
 # Create a filename variable to a direct or indirect path to the file.
 file_to_save = os.path.join("analysis", "election_analysis.txt")
 
+#1. the total number of votes cast
+total_votes = 0
+
+#add candidate option variable
+candidate_options = []
+
+#create voter dictionary
+candidate_votes = {}
+
 # Open the election results and read the file.
 with open(file_to_load) as election_data:
 
     # Read the file object with the reader function.
     file_reader = csv.reader(election_data)
 
-    # Print the header row.
+    # Read the header row.
     headers = next(file_reader)
-    print(headers)
+    #print(headers)
 
     # Print each row in the CSV file.
-    #for row in file_reader:
-       # print(row)
+    for row in file_reader:
+
+        #add the total vote count
+        total_votes += 1
+
+        # Print the candidate name from each row
+        candidate_name = row[2]
+
+        #If the candidate does not match existing name
+        if candidate_name not in candidate_options:
+
+            #add the candidate name to the candidate list
+            candidate_options.append(candidate_name)
+
+            #start tracking cadidate vote count
+            candidate_votes[candidate_name] = 0
+
+        #add votes to the candidates count
+        candidate_votes[candidate_name] += 1
+
+        # Determine the percentage of votes for each candidate by looping through the counts.
+        # 1. Iterate through the candidate list.
+    for candidate_name in candidate_votes:
+
+        #vote count
+        votes = candidate_votes[candidate_name]
+
+        #calculate percentage
+        #vote_percentage = float(votes) / float(total_votes) * 100
+
+        #print candidadate name and percentage
+        print(f"{candidate_name}: received {votes / total_votes * 100:.2f}% of the vote.")
+
+
+    #print(total_votes)
+#print(candidate_options)
+print(candidate_votes)
+
+    
 
     # To do: perform analysis.
     #print(election_data)
