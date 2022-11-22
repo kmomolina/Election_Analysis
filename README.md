@@ -74,5 +74,9 @@ We would need to expand our variables to include State votes. We would also modi
             largest_county = county_name
             county_percentage = voter_percentage
 ```
+The results will print out in an easy to read .txt file. The results would look like this:
+
+![results](Analysis/analysis_image.png)
+
 The results that came from this audit were accurate, and using this same formula will result in equally accurate results for larger scales. 
 
